@@ -19,9 +19,10 @@ import {
   FileText,
   PieChart,
 } from "lucide-react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LeadForm from "@/components/LeadForm";
+import LeadModal from "@/components/LeadModal";
 
 const solutions = [
   {
@@ -165,6 +166,8 @@ const checkColorMap: Record<string, string> = {
 };
 
 export default function SolutionsPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-navy-950">
       <Navbar />
@@ -276,10 +279,16 @@ export default function SolutionsPage() {
               <span className="font-display italic gradient-text">your firm</span>
             </h2>
             <p className="text-lg text-white/40">
-              Get a personalized walkthrough or start your free trial today.
+              Get a personalized walkthrough of the platform.
             </p>
           </div>
-          <LeadForm />
+          <div className="flex justify-center">
+            <button onClick={() => setModalOpen(true)} className="btn-primary text-base gap-2 group">
+              Get Started
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+          <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
         </div>
       </section>
 

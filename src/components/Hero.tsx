@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { ArrowRight, Play, Shield, Lock, Zap } from "lucide-react";
+import LeadModal from "@/components/LeadModal";
 
 export default function Hero() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background effects */}
@@ -45,15 +49,16 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <a href="#cta" className="btn-primary text-base gap-2 group">
-              Get Started Free
+            <button onClick={() => setModalOpen(true)} className="btn-primary text-base gap-2 group">
+              Get Started
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base gap-2 group">
+            </button>
+            <button onClick={() => setModalOpen(true)} className="btn-secondary text-base gap-2 group">
               <Play className="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform" />
               Book a Demo
-            </a>
+            </button>
           </div>
+          <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
           {/* Hero visual - Mock dashboard */}
           <div className="relative max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.45s" }}>

@@ -28,9 +28,10 @@ import {
   MessageSquare,
   Search,
 } from "lucide-react";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LeadForm from "@/components/LeadForm";
+import LeadModal from "@/components/LeadModal";
 
 const products = [
   {
@@ -168,6 +169,8 @@ const iconColorMap: Record<string, string> = {
 };
 
 export default function ProductsPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-navy-950">
       <Navbar />
@@ -255,10 +258,16 @@ export default function ProductsPage() {
               Ready to see it in action?
             </h2>
             <p className="text-lg text-white/40">
-              Start your free 14-day trial or book a personalized demo with our team.
+              Book a personalized demo with our team.
             </p>
           </div>
-          <LeadForm />
+          <div className="flex justify-center">
+            <button onClick={() => setModalOpen(true)} className="btn-primary text-base gap-2 group">
+              Get Started
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+          <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
         </div>
       </section>
 

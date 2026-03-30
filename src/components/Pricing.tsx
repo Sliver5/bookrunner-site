@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
+import LeadModal from "@/components/LeadModal";
 
 const plans = [
   {
@@ -16,7 +18,7 @@ const plans = [
       "Standard compliance review",
       "Email support",
     ],
-    cta: "Start Free Trial",
+    cta: "Get Started",
     highlighted: false,
   },
   {
@@ -34,7 +36,7 @@ const plans = [
       "Priority compliance review",
       "Dedicated account manager",
     ],
-    cta: "Start Free Trial",
+    cta: "Get Started",
     highlighted: true,
     badge: "Most Popular",
   },
@@ -60,6 +62,8 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section id="pricing" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/40 to-navy-950" />
@@ -112,8 +116,8 @@ export default function Pricing() {
                 ))}
               </div>
 
-              <a
-                href="#"
+              <button
+                onClick={() => setModalOpen(true)}
                 className={`w-full flex items-center justify-center gap-2 py-4 rounded-full font-semibold transition-all duration-300 group ${
                   plan.highlighted
                     ? "btn-primary"
@@ -122,11 +126,12 @@ export default function Pricing() {
               >
                 {plan.cta}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
             </div>
           ))}
         </div>
       </div>
+      <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

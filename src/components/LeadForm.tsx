@@ -185,7 +185,7 @@ export default function LeadForm() {
               )}
             </button>
             <p className="text-xs text-white/20 text-center">
-              Free 14-day trial &middot; No credit card required &middot; FINRA-compliant from day one
+              FINRA-compliant from day one
             </p>
           </form>
         </div>

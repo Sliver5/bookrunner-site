@@ -16,6 +16,7 @@ import {
   TrendingUp,
   Briefcase,
 } from "lucide-react";
+import LeadModal from "@/components/LeadModal";
 
 const products = [
   { name: "Website Platform", desc: "FINRA-compliant, conversion-optimized sites", icon: Globe },
@@ -37,6 +38,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -171,12 +173,12 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="#" className="text-sm text-white/70 hover:text-white transition-colors">
+            <a href="/login" className="text-sm text-white/70 hover:text-white transition-colors">
               Log in
             </a>
-            <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-primary !py-2.5 !px-6 text-sm">
+            <button onClick={() => setModalOpen(true)} className="btn-primary !py-2.5 !px-6 text-sm">
               Book a Demo
-            </a>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -199,12 +201,13 @@ export default function Navbar() {
               <a href="#pricing" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Pricing</a>
             </div>
             <div className="mt-4 px-4 space-y-3">
-              <a href="#" className="block text-center text-sm text-white/70 py-3">Log in</a>
-              <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm">Book a Demo</a>
+              <a href="/login" className="block text-center text-sm text-white/70 py-3">Log in</a>
+              <button onClick={() => { setMobileOpen(false); setModalOpen(true); }} className="btn-primary w-full text-sm">Book a Demo</button>
             </div>
           </div>
         )}
       </div>
+      <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </nav>
   );
 }

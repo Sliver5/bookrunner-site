@@ -10,7 +10,7 @@ interface Message {
 
 const KNOWLEDGE_BASE: Record<string, string> = {
   pricing:
-    "BookRunner offers three plans: Starter at $499/mo for emerging managers, Growth at $1,499/mo (most popular) for scaling firms, and Enterprise with custom pricing for large organizations. All plans include a free 14-day trial with no credit card required.",
+    "BookRunner offers three plans: Starter at $499/mo for emerging managers, Growth at $1,499/mo (most popular) for scaling firms, and Enterprise with custom pricing for large organizations.",
   compliance:
     "BookRunner has built-in FINRA & SEC compliance tools. Every piece of content, outbound message, and website change is reviewed against current advertising rules automatically. We maintain a 99.9% compliance pass rate and are SOC 2 Type II certified.",
   "website|site|web":
@@ -32,7 +32,7 @@ const KNOWLEDGE_BASE: Record<string, string> = {
   "investment bank|ib|m&a|deal":
     "For Investment Banks & Advisors, BookRunner helps you manage multiple live mandates with deal-specific microsites, targeted buyer outreach, engagement tracking, and pipeline reporting. 127+ deals have been closed by IB teams on our platform.",
   "demo|trial|start|sign up|book":
-    "You can start a free 14-day trial with no credit card required, or book a personalized demo call with our team. Visit our contact form on any page or book directly at our calendar link.",
+    "You can book a personalized demo call with our team. Visit our contact form on any page or book directly at our calendar link.",
 };
 
 function findAnswer(query: string): string {
