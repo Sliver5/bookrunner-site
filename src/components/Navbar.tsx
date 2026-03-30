@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
@@ -37,12 +37,28 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const openDropdown = (name: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveDropdown(name);
+  };
+
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 120);
+  };
+
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
 
   return (
     <nav
@@ -54,8 +70,8 @@ export default function Navbar() {
     >
       <div className="container-wide">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          {/* Logo — always goes to home */}
+          <a href="/" className="flex items-center gap-3 group">
             <div className="w-9 h-9 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center group-hover:shadow-lg group-hover:shadow-gold-400/20 transition-shadow">
               <span className="text-navy-950 font-bold text-lg">B</span>
             </div>
@@ -66,17 +82,26 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
+
             {/* Products Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown("products")}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => openDropdown("products")}
+              onMouseLeave={scheduleClose}
             >
               <button className="flex items-center gap-1.5 px-4 py-2 text-sm text-white/70 hover:text-white transition-colors">
-                Products <ChevronDown className="w-3.5 h-3.5" />
+                Products <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "products" ? "rotate-180" : ""}`} />
               </button>
+              {/* invisible bridge fills the mt-2 gap so mouse can travel down without closing */}
               {activeDropdown === "products" && (
-                <div className="absolute top-full left-0 mt-2 w-[420px] bg-navy-900/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3 shadow-2xl shadow-black/40 animate-fade-in">
+                <div className="absolute top-full left-0 w-full h-3" />
+              )}
+              {activeDropdown === "products" && (
+                <div
+                  className="absolute top-[calc(100%+8px)] left-0 w-[420px] bg-navy-900/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3 shadow-2xl shadow-black/40 animate-fade-in"
+                  onMouseEnter={cancelClose}
+                  onMouseLeave={scheduleClose}
+                >
                   {products.map((item) => (
                     <a
                       key={item.name}
@@ -99,14 +124,21 @@ export default function Navbar() {
             {/* Solutions Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setActiveDropdown("solutions")}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => openDropdown("solutions")}
+              onMouseLeave={scheduleClose}
             >
               <button className="flex items-center gap-1.5 px-4 py-2 text-sm text-white/70 hover:text-white transition-colors">
-                Solutions <ChevronDown className="w-3.5 h-3.5" />
+                Solutions <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "solutions" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "solutions" && (
-                <div className="absolute top-full left-0 mt-2 w-[380px] bg-navy-900/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3 shadow-2xl shadow-black/40 animate-fade-in">
+                <div className="absolute top-full left-0 w-full h-3" />
+              )}
+              {activeDropdown === "solutions" && (
+                <div
+                  className="absolute top-[calc(100%+8px)] left-0 w-[380px] bg-navy-900/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3 shadow-2xl shadow-black/40 animate-fade-in"
+                  onMouseEnter={cancelClose}
+                  onMouseLeave={scheduleClose}
+                >
                   {solutions.map((item) => (
                     <a
                       key={item.name}
