@@ -1,0 +1,35 @@
+# BookRunner
+
+> The AI-powered growth platform built exclusively for financial services. Launch FINRA-compliant websites, automate capital-raising outreach, A/B test pitch language, and close more deals.
+
+## Products
+
+- [Website Platform](/products#website-platform): FINRA-compliant, conversion-optimized websites with drag-and-drop builder, real-time compliance scanning, and sub-2-second load times. 40+ financial services templates.
+- [Capital Raising CRM](/products#capital-raising-crm): Purpose-built CRM for capital raises with 360° investor profiles, visual pipeline management, automated follow-ups, document tracking, and raise analytics. $12B+ in capital raised through our pipeline.
+- [Outreach Engine](/products#outreach-engine): Multi-channel automated sequences (email, LinkedIn, calls) with AI personalization, compliance guardrails, A/B testing, and deliverability suite. 8x faster investor engagement.
+- [Compliance Suite](/products#compliance-suite): Real-time FINRA & SEC content scanning, audit trail, role-based approvals, automatic regulatory updates, archive & retention, and one-click compliance reporting. 99.9% pass rate.
+- [Social Media Manager](/products#social-media-manager): Compliant social content scheduling across LinkedIn and Twitter/X with AI suggestions, pre-publish compliance review, engagement analytics, and comment monitoring. 340% average lead increase.
+- [A/B Testing Lab](/products#ab-testing-lab): Multi-variate testing for email, pitch decks, landing pages, and sequences with real-time results, AI recommendations, compliance-safe variants, and industry benchmarks. +42% average improvement.
+
+## Solutions
+
+- [Fund Managers](/solutions#fund-managers): Raise capital faster with LP-facing websites, automated outreach, document engagement tracking, pitch A/B testing, and full pipeline management. $8.2B raised by fund managers on BookRunner.
+- [RIAs & Wealth Advisors](/solutions#rias-advisors): Build premium digital presence, publish compliant content, automate client onboarding, run targeted outreach, and grow social authority. 340% average increase in qualified inbound leads.
+- [Broker-Dealers](/solutions#broker-dealers): Centralized platform for deploying branded rep websites, enforcing firm-level compliance, and monitoring all communications from a single dashboard. 50+ broker-dealers trust BookRunner.
+- [Investment Banks & Advisors](/solutions#investment-banks): Deal-specific microsites, targeted buyer outreach, CIM engagement tracking, pipeline reporting, and multi-mandate management. 127+ deals closed.
+
+## Pricing
+
+- Starter: $499/month — for emerging managers. Includes compliant website, basic CRM, email sequences, and compliance scanning.
+- Growth: $1,499/month — most popular. Everything in Starter plus A/B testing, social media manager, advanced analytics, and priority support.
+- Enterprise: Custom pricing — for large firms. Dedicated account manager, custom integrations, SSO, and SLA guarantees.
+- All plans include a free 14-day trial with no credit card required.
+
+## Key Facts
+
+- FINRA-compliant and SOC 2 Type II certified
+- 2,400+ financial firms on the platform
+- $12B+ in capital raised through BookRunner
+- 99.9% compliance pass rate
+- AI-powered personalization and content generation
+- Domain: bookrunner.us

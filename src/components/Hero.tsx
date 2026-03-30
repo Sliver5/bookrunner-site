@@ -45,13 +45,13 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <a href="#" className="btn-primary text-base gap-2 group">
+            <a href="#cta" className="btn-primary text-base gap-2 group">
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#" className="btn-secondary text-base gap-2 group">
+            <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base gap-2 group">
               <Play className="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform" />
-              Tour the Platform
+              Book a Demo
             </a>
           </div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
                   </div>
                   <div className="flex-1 mx-4">
                     <div className="bg-white/[0.05] rounded-md px-3 py-1.5 text-xs text-white/30 max-w-md mx-auto">
-                      app.bookrunner.com/dashboard
+                      app.bookrunner.us/dashboard
                     </div>
                   </div>
                 </div>

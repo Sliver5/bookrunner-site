@@ -80,7 +80,7 @@ export default function Navbar() {
                   {products.map((item) => (
                     <a
                       key={item.name}
-                      href="#"
+                      href={`/products#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                       className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.05] transition-colors group"
                     >
                       <div className="w-10 h-10 bg-white/[0.05] rounded-lg flex items-center justify-center group-hover:bg-gold-400/10 transition-colors mt-0.5">
@@ -110,7 +110,7 @@ export default function Navbar() {
                   {solutions.map((item) => (
                     <a
                       key={item.name}
-                      href="#"
+                      href={`/solutions#${item.name.toLowerCase().replace(/\s+&\s+/g, "-").replace(/\s+/g, "-")}`}
                       className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.05] transition-colors group"
                     >
                       <div className="w-10 h-10 bg-white/[0.05] rounded-lg flex items-center justify-center group-hover:bg-gold-400/10 transition-colors mt-0.5">
@@ -142,7 +142,7 @@ export default function Navbar() {
             <a href="#" className="text-sm text-white/70 hover:text-white transition-colors">
               Log in
             </a>
-            <a href="#" className="btn-primary !py-2.5 !px-6 text-sm">
+            <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-primary !py-2.5 !px-6 text-sm">
               Book a Demo
             </a>
           </div>
@@ -160,15 +160,15 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="lg:hidden pb-6 border-t border-white/[0.06] mt-2 pt-4 animate-fade-in">
             <div className="space-y-1">
-              <a href="#" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Products</a>
-              <a href="#" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Solutions</a>
+              <a href="/products" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Products</a>
+              <a href="/solutions" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Solutions</a>
               <a href="#how-it-works" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">How It Works</a>
               <a href="#case-studies" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Case Studies</a>
               <a href="#pricing" className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/[0.03] rounded-xl transition-colors">Pricing</a>
             </div>
             <div className="mt-4 px-4 space-y-3">
               <a href="#" className="block text-center text-sm text-white/70 py-3">Log in</a>
-              <a href="#" className="btn-primary w-full text-sm">Book a Demo</a>
+              <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm">Book a Demo</a>
             </div>
           </div>
         )}
