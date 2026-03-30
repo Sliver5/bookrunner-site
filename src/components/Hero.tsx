@@ -49,7 +49,7 @@ export default function Hero() {
               Get Started Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base gap-2 group">
+            <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-secondary text-base gap-2 group">
               <Play className="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform" />
               Book a Demo
             </a>

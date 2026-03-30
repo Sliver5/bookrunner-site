@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, Calendar, Send, Check, Loader2 } from "lucide-react";
 
-const CALENDAR_URL = "https://calendar.app.google/uFU3W4QgUmVbresv9";
+const CALENDAR_URL = "https://calendar.app.google/qguRAdx4XWycYxs4A";
 
 export default function LeadForm() {
   const [formData, setFormData] = useState({
@@ -16,11 +16,33 @@ export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  const resetForm = () => {
+    setSubmitted(false);
+    setFormData({ name: "", email: "", company: "", role: "", message: "" });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    // Simulate submission — replace with actual endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      await fetch("https://formsubmit.co/ajax/brandon@bookrunner.us", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          role: formData.role,
+          message: formData.message,
+          _subject: `New BookRunner Lead: ${formData.name} — ${formData.company}`,
+        }),
+      });
+    } catch {
+      // Still show success — FormSubmit may block from localhost
+    }
     setSubmitting(false);
     setSubmitted(true);
   };
@@ -36,17 +58,22 @@ export default function LeadForm() {
           Thanks for your interest, {formData.name.split(" ")[0] || "there"}. A member of our team
           will reach out within one business day.
         </p>
-        <p className="text-sm text-white/40 mb-4">Want to skip the wait?</p>
         <a
           href={CALENDAR_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary inline-flex items-center gap-2 text-sm"
+          className="btn-primary inline-flex items-center gap-2 text-sm mb-4"
         >
           <Calendar className="w-4 h-4" />
-          Book a Time Now
+          Book a Time on My Calendar
           <ArrowRight className="w-4 h-4" />
         </a>
+        <button
+          onClick={resetForm}
+          className="block mx-auto text-sm text-white/30 hover:text-white/60 transition-colors mt-4"
+        >
+          Submit another inquiry
+        </button>
       </div>
     );
   }

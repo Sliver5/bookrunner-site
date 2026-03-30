@@ -174,7 +174,7 @@ export default function Navbar() {
             <a href="#" className="text-sm text-white/70 hover:text-white transition-colors">
               Log in
             </a>
-            <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-primary !py-2.5 !px-6 text-sm">
+            <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-primary !py-2.5 !px-6 text-sm">
               Book a Demo
             </a>
           </div>
@@ -200,7 +200,7 @@ export default function Navbar() {
             </div>
             <div className="mt-4 px-4 space-y-3">
               <a href="#" className="block text-center text-sm text-white/70 py-3">Log in</a>
-              <a href="https://calendar.app.google/uFU3W4QgUmVbresv9" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm">Book a Demo</a>
+              <a href="https://calendar.app.google/qguRAdx4XWycYxs4A" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm">Book a Demo</a>
             </div>
           </div>
         )}
